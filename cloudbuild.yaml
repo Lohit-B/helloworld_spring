@@ -1,0 +1,9 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/august-enigma-362212/helloservice', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/august-enigma-362212/helloservice']
+images:
+- gcr.io/august-enigma-362212/helloservice
