@@ -4,10 +4,10 @@ steps:
   args: ["package", "-Dmaven.test.skip=true"]
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/august-enigma-362212/helloservice', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/august-enigma-362212/brainlinks-docker/helloservice', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/august-enigma-362212/brainlinks-docker/helloservice:latest']
+  args: ['push', 'us-central1-docker.pkg.dev/august-enigma-362212/brainlinks-docker/helloservice']
 options:
   logging: CLOUD_LOGGING_ONLY
 images: ["us-central1-docker.pkg.dev/august-enigma-362212/brainlinks-docker/helloservice"]
