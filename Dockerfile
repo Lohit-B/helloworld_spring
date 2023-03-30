@@ -7,6 +7,6 @@ COPY pom.xml .
 COPY src src
 
 RUN ./mvnw package -DskipTests
-COPY target/*.war app.war
+COPY target/service-0.0.1-SNAPSHOT.war app.war
 
 ENTRYPOINT ["java","-jar","app.war"]
