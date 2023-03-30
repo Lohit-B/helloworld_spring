@@ -7,3 +7,5 @@ steps:
   args: ['push', 'gcr.io/august-enigma-362212/helloservice']
 images:
 - gcr.io/august-enigma-362212/helloservice
+options:
+  logging: CLOUD_LOGGING_ONLY
