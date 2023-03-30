@@ -8,7 +8,5 @@ steps:
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/august-enigma-362212/brainlinks-docker/helloservice']
-images:
-- us-central1-docker.pkg.dev/august-enigma-362212/brainlinks-docker/helloservice
 options:
   logging: CLOUD_LOGGING_ONLY
