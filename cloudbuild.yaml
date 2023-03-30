@@ -1,4 +1,7 @@
 steps:
+- name: maven:3-eclipse-temurin-17-alpine
+  entrypoint: mvn
+  args: ["package", "-Dmaven.test.skip=true"]
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/august-enigma-362212/helloservice', '.']
