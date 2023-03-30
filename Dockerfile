@@ -6,9 +6,7 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 
-RUN ./mvnw install -DskipTests
-
-FROM eclipse-temurin:11-jdk-alpine
-VOLUME /tmp
+RUN ./mvnw package -DskipTests
 COPY target/*.war app.war
+
 ENTRYPOINT ["java","-jar","app.war"]
