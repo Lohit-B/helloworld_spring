@@ -16,7 +16,7 @@ public class HelloWorldController {
 		 return "Hello World";
 	 }
 	 
-	 @GetMapping("/envs")
+	 @GetMapping("/inventory")
 	 public String showEnvironmentVars() {
 		 String name = environment.getProperty("name");
 		 String greeting = environment.getProperty("greeting");
