@@ -16,7 +16,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-    	<start-class>club.blink.service.ServiceApplication</start-class>
+    	<start-class>club.blink.ServiceApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
