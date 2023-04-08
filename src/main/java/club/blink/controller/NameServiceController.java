@@ -1,7 +1,11 @@
 package club.blink.controller;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,22 +19,28 @@ import club.blink.service.AbstractNameService;
 
 @RestController
 @RequestMapping("/names")
-public class HelloWorldController {
+public class NameServiceController {
 
 	@Autowired
 	@Qualifier("nameServiceImpl")
 	private AbstractNameService nameService;
 	
 	 @GetMapping("/{id}")
-	 public NameResponseEntity getName(@PathVariable String id) {
+	 public ResponseEntity<NameResponseEntity> getName(@PathVariable long id) {
 		 NameResponseEntity ne = nameService.getName(id);
-		 return ne;
+		 System.out.println(ne);
+		 if(ne == null) {
+			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		 }
+		 return new ResponseEntity<NameResponseEntity>(ne, HttpStatus.OK);
 	 }
+	 
 	 @PostMapping("")
-	 public NameResponseEntity postName(@RequestBody NamePostRequestEntity request) {
+	 @Transactional
+	 public ResponseEntity<NameResponseEntity> postName(@RequestBody NamePostRequestEntity request) {
 		 System.out.println("OKOK");
 		 NameResponseEntity ne = nameService.postName(request);
-		 return ne;
+		 return new ResponseEntity<NameResponseEntity>(ne, HttpStatus.CREATED);
 	 }
 }	
 
