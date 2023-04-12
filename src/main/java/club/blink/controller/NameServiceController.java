@@ -27,8 +27,8 @@ public class NameServiceController {
 	
 	 @GetMapping("/{id}")
 	 public ResponseEntity<NameResponseEntity> getName(@PathVariable long id) {
+		 System.out.println("Inside get name");
 		 NameResponseEntity ne = nameService.getName(id);
-		 System.out.println(ne);
 		 if(ne == null) {
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		 }
