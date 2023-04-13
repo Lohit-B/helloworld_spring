@@ -15,31 +15,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import club.blink.controller.entity.NamePostRequestEntity;
 import club.blink.controller.entity.NameResponseEntity;
-import club.blink.service.AbstractNameService;
+import club.blink.service.NameServiceInterface;
 
 @RestController
 @RequestMapping("/names")
 public class NameServiceController {
 
 	@Autowired
-	@Qualifier("nameServiceImpl")
-	private AbstractNameService nameService;
+	private NameServiceInterface nameServiceImpl;
+	
 	
 	 @GetMapping("/{id}")
 	 public ResponseEntity<NameResponseEntity> getName(@PathVariable long id) {
 		 System.out.println("Inside get name");
-		 NameResponseEntity ne = nameService.getName(id);
+		 NameResponseEntity ne = nameServiceImpl.getName(id);
 		 if(ne == null) {
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		 }
 		 return new ResponseEntity<NameResponseEntity>(ne, HttpStatus.OK);
 	 }
 	 
+	 
 	 @PostMapping("")
 	 @Transactional
 	 public ResponseEntity<NameResponseEntity> postName(@RequestBody NamePostRequestEntity request) {
 		 System.out.println("OKOK");
-		 NameResponseEntity ne = nameService.postName(request);
+		 NameResponseEntity ne = nameServiceImpl.postName(request);
 		 return new ResponseEntity<NameResponseEntity>(ne, HttpStatus.CREATED);
 	 }
 }	

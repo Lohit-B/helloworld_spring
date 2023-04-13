@@ -9,10 +9,10 @@ import club.blink.controller.entity.NamePostRequestEntity;
 import club.blink.controller.entity.NameResponseEntity;
 import club.blink.repository.NameServiceRepository;
 import club.blink.repository.entity.NameEntity;
-import club.blink.service.AbstractNameService;
+import club.blink.service.NameServiceInterface;
 
 @Service("nameServiceImpl")
-public class NameServiceImplementation extends AbstractNameService {
+public class NameServiceImplementation implements NameServiceInterface {
 	
 	@Autowired
 	private NameServiceRepository nameServiceRepository;
