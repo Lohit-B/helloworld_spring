@@ -18,30 +18,13 @@ import club.blink.controller.entity.NameResponseEntity;
 import club.blink.service.NameServiceInterface;
 
 @RestController
-@RequestMapping("/names")
 public class NameServiceController {
-
-	@Autowired
-	private NameServiceInterface nameServiceImpl;
 	
+	 @GetMapping("/")
+	 public ResponseEntity<String> getName() {
+		
+		 return new ResponseEntity<String>("Coming Soon", HttpStatus.OK);
+	 }
 	
-	 @GetMapping("/{id}")
-	 public ResponseEntity<NameResponseEntity> getName(@PathVariable long id) {
-		 System.out.println("Inside get name");
-		 NameResponseEntity ne = nameServiceImpl.getName(id);
-		 if(ne == null) {
-			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		 }
-		 return new ResponseEntity<NameResponseEntity>(ne, HttpStatus.OK);
-	 }
-	 
-	 
-	 @PostMapping("")
-	 @Transactional
-	 public ResponseEntity<NameResponseEntity> postName(@RequestBody NamePostRequestEntity request) {
-		 System.out.println("OKOK");
-		 NameResponseEntity ne = nameServiceImpl.postName(request);
-		 return new ResponseEntity<NameResponseEntity>(ne, HttpStatus.CREATED);
-	 }
 }	
 
