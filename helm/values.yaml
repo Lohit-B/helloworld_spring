@@ -1,11 +1,11 @@
 app:
-  name: testapp-ui
+  name: helmapp-ui
   replicas: 1
   revisionHistoryLimit: 3
   image: nginx:latest
   containerPort: 8090
 
 service:
-  name: testapp-ui-service
+  name: helmapp-ui-service
   port: 8090
   targetPort: 8090
