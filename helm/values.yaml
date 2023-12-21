@@ -3,9 +3,9 @@ app:
   replicas: 1
   revisionHistoryLimit: 3
   image: nginx:latest
-  containerPort: 8090
+  containerPort: 80
 
 service:
   name: helmapp-ui-service
-  port: 8090
-  targetPort: 8090
+  port: 80
+  targetPort: 80
