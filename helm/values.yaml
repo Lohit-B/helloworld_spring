@@ -1,5 +1,5 @@
 app:
-  name: testapp
+  name: testapp-ui
   replicas: 1
   revisionHistoryLimit: 3
   image: gcr.io/heptio-images/ks-guestbook-demo:0.2
