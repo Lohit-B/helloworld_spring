@@ -3,7 +3,7 @@ app:
   replicas: 1
   revisionHistoryLimit: 3
   image: nginx:latest
-  containerPort: 80
+  containerPort: 8090
 
 service:
   name: testapp-ui-service
